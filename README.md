@@ -3,26 +3,30 @@
 # 📗 Table of Contents
 
 - [📖 About the Project](#about-project)
-  - [🛠 Built With](#built-with)
-    - [Tech Stack](#tech-stack)
-    - [Key Features](#key-features)
+  - [🗝️ Key Features](#key-features)
+  - [🛠️ Built With](#built-with)
 - [💻 Getting Started](#getting-started)
   - [Prerequisites](#prerequisites)
   - [Setup](#setup)
   - [Usage](#usage)
 - [👥 Authors](#authors)
+- [🔭 Future Features](#future-features)
 - [🤝 Contributing](#contributing)
 - [⭐️ Show your support](#support)
 - [🙏 Acknowledgements](#acknowledgements)
 - [📝 License](#license)
 
-# 📖 Decode Morse Code <a name="about-project"></a>
+# 📖 OOP School Library <a name="about-project"></a>
 
-**Decode Morse Code** is a small Ruby warm up project that takes an encoded Morse message and returns the decoded version.
+**OOP School Library** is a university's library management system that allows you to record the available books and who borrows them.
 
-## 🛠 Built With <a name="built-with"></a>
+## 🗝️ Key Features <a name="key-features"></a>
 
-### Tech Stack <a name="tech-stack"></a>
+- Add new students or teachers.
+- Add new books.
+- Save records of who borrowed a given book and when.
+
+## 🛠️ Built With <a name="built-with"></a>
 
 <details>
   <summary>Client</summary>
@@ -30,10 +34,6 @@
     <li><a href="https://www.ruby-lang.org/en/">Ruby</a></li>
   </ul>
 </details>
-
-### Key Features <a name="key-features"></a>
-
-- **Decode a morse message**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -53,7 +53,7 @@ Clone this repository to your desired folder:
 
 ```sh
   cd my-folder
-  git clone git@github.com:mwismann/decode_a_morse_code.git
+  git clone git@github.com:dicodiaz/oop-school-library.git
 ```
 
 ### Usage
@@ -61,24 +61,31 @@ Clone this repository to your desired folder:
 To run the project, execute the following commands:
 
 ```sh
-  ruby decode.rb
+  ruby person.rb
+  ruby student.rb
+  ruby teacher.rb
 ```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## 👥 Authors <a name="authors"></a>
 
-👤 **Mathias Wismann**
-
-- GitHub: [@mwismann](https://github.com/mwismann)
-- Twitter: [@mathias_wismann](https://twitter.com/mathias_wismann)
-- LinkedIn: [Mathias Wismann](https://www.linkedin.com/in/mathias-wismann/)
-
 👤 **Dico Diaz Dussan**
 
 - GitHub: [@dicodiaz](https://github.com/dicodiaz)
 - LinkedIn: [Dico Diaz Dussan](https://www.linkedin.com/in/dico-diaz-dussan/)
 - Portfolio: [portfolio.dicodiaz.com.co](https://portfolio.dicodiaz.com.co)
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## 🔭 Future Features <a name="future-features"></a>
+
+- [ ] Use the "Decorator" design pattern.
+- [ ] Set up associations.
+- [ ] Add basic UI.
+- [ ] Refactor your code.
+- [ ] Preserve data.
+- [ ] Unit tests.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
