@@ -80,7 +80,7 @@ To run the project, execute the following commands:
 
 ## 🔭 Future Features <a name="future-features"></a>
 
-- [ ] Use the "Decorator" design pattern.
+- [x] Use the "Decorator" design pattern.
 - [ ] Set up associations.
 - [ ] Add basic UI.
 - [ ] Refactor your code.
