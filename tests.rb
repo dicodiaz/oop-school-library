@@ -1,6 +1,9 @@
 require './student'
 require './teacher'
 require './classroom'
+require './book'
+require './rental'
+require 'date'
 
 puts '', 'Student', ''
 
@@ -40,3 +43,16 @@ student2 = Student.new(7, 'Jimmy', parent_permission: false)
 p classroom1.add_student(student1).add_student(student2)
 student2.classroom = classroom2
 p student2, classroom1, classroom2
+
+puts '', 'Rental', ''
+
+book1 = Book.new('After Many a Summer Dies the Swan', 'Aldous Huxley')
+book2 = Book.new('Ah, Wilderness!', 'Eugene O\'Neill')
+
+Rental.new(Date.new(2023, 5, 17), book1, person1)
+Rental.new(Date.new(2023, 4, 16), book2, person1)
+Rental.new(Date.new(2023, 3, 15), book2, person2)
+p book1.rentals.length, (book1.rentals.map { |rental| rental.person.name })
+p book2.rentals.length, (book2.rentals.map { |rental| rental.person.name })
+p person1.rentals.length, (person1.rentals.map { |rental| rental.book.title })
+p person2.rentals.length, (person2.rentals.map { |rental| rental.book.title })
