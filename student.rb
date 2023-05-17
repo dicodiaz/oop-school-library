@@ -12,8 +12,3 @@ class Student < Person
     '¯(ツ)/¯'
   end
 end
-
-p student1 = Student.new('2B', 7, 'Timmy', parent_permission: false)
-p student1.play_hooky
-p student1.can_use_services?
-p student1.id
