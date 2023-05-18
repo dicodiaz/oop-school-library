@@ -61,22 +61,7 @@ Clone this repository to your desired folder:
 To run the project, execute the following commands:
 
 ```sh
-  chmod 755 main
-  mkdir -p /usr/local/bin/
-  ln -s $PWD/main /usr/local/bin/
-  main
-```
-
-If the third line raises the following error:
-
-```
-  ln: failed to create symbolic link '/usr/local/bin/main': File exists
-```
-
-Then execute the following command instead:
-
-```sh
-  ln -s $PWD/main /usr/local/bin/ -f
+  ruby main.rb
 ```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
