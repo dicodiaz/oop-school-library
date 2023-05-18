@@ -69,7 +69,9 @@ class App
     puts filtered_mapped_rentals
   end
 
-  private
+  def exit
+    puts 'Thank you for using this app!'
+  end
 
   def input(type, range_or_regex, print_text)
     print print_text
