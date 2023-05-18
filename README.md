@@ -61,9 +61,7 @@ Clone this repository to your desired folder:
 To run the project, execute the following commands:
 
 ```sh
-  ruby person.rb
-  ruby student.rb
-  ruby teacher.rb
+  ruby main.rb
 ```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -82,7 +80,7 @@ To run the project, execute the following commands:
 
 - [x] Use the "Decorator" design pattern.
 - [x] Set up associations.
-- [ ] Add basic UI.
+- [x] Add basic UI.
 - [ ] Refactor your code.
 - [ ] Preserve data.
 - [ ] Unit tests.
