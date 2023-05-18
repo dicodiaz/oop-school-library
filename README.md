@@ -61,9 +61,22 @@ Clone this repository to your desired folder:
 To run the project, execute the following commands:
 
 ```sh
-  ruby person.rb
-  ruby student.rb
-  ruby teacher.rb
+  chmod 755 main
+  mkdir -p /usr/local/bin/
+  ln -s $PWD/main /usr/local/bin/
+  main
+```
+
+If the third line raises the following error:
+
+```
+  ln: failed to create symbolic link '/usr/local/bin/main': File exists
+```
+
+Then execute the following command instead:
+
+```sh
+  ln -s $PWD/main /usr/local/bin/ -f
 ```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -82,7 +95,7 @@ To run the project, execute the following commands:
 
 - [x] Use the "Decorator" design pattern.
 - [x] Set up associations.
-- [ ] Add basic UI.
+- [x] Add basic UI.
 - [ ] Refactor your code.
 - [ ] Preserve data.
 - [ ] Unit tests.
