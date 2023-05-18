@@ -3,12 +3,16 @@ require_relative 'teacher'
 require_relative 'book'
 
 class App
+  WORDS_NUMBERS_SPACES_REGEX = /^[\w\s]+$/.freeze
+
   def initialize
     @people = []
     @books = []
   end
 
-  def list_books; end
+  def list_books
+    puts(@books.map { |book| "Title: \"#{book.title}\", Author: #{book.author}" })
+  end
 
   def list_people
     puts(@people.map { |person| "[#{person.class}] Name: #{person.name}, ID: #{person.id}, Age: #{person.age}" })
@@ -17,19 +21,24 @@ class App
   def create_person
     option = input('number', 1..2, 'Do you want to create a student (1) or a teacher (2)? [Input the number]: ')
     age = input('number', 1..1000, 'Age: ')
-    name = input('string', /^[\w\s]+$/, 'Name: ')
+    name = input('string', WORDS_NUMBERS_SPACES_REGEX, 'Name: ')
     case option
     when 1
       parent_permission = input('string', /^[ynYN]$/, 'Has parent permission? [Y/N]: ')
       @people.push(Student.new(age, name, parent_permission: parent_permission))
     when 2
-      specialization = input('string', /^[\w\s]+$/, 'Specialization: ')
+      specialization = input('string', WORDS_NUMBERS_SPACES_REGEX, 'Specialization: ')
       @people.push(Teacher.new(specialization, age, name))
     end
     puts 'Person created successfully'
   end
 
-  def create_book; end
+  def create_book
+    title = input('string', WORDS_NUMBERS_SPACES_REGEX, 'Title: ')
+    author = input('string', WORDS_NUMBERS_SPACES_REGEX, 'Author: ')
+    @books.push(Book.new(title, author))
+    puts 'Book created successfully'
+  end
 
   def create_rental; end
 
@@ -64,3 +73,6 @@ app = App.new
 app.create_person
 app.create_person
 app.list_people
+app.create_book
+app.create_book
+app.list_books
