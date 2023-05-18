@@ -55,7 +55,7 @@ class App
     end.join("\n").concat("\n")
     person_index = input('number', 0..(@people.length - 1), print_text)
     puts ''
-    date = input('string', %r{^\d{4}/\d{2}/\d{2}$}, 'Date: ')
+    date = input('string', %r{^\d{4}/\d{2}/\d{2}$}, 'Date(YYYY/MM/DD): ')
     @rentals.push(Rental.new(date, @books[book_index], @people[person_index]))
     puts 'Rental created successfully'
   end
