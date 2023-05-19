@@ -13,7 +13,7 @@ def main
       "#{index.zero? ? '' : "#{index} - "}#{option_key}"
     end.join("\n").prepend("\n").concat("\n")
     selected_option = app.input('number', 1..(options.length - 1), print_text)
-    app.public_send(options.values[selected_option])
+    app.public_send(options.values[selected_option - 1])
   end
 end
 
