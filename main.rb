@@ -12,26 +12,18 @@ class CreateRentalExecutor
   end
 end
 
-class ListRentalsExecutor
-  attr_reader :help_text
-
-  def initialize
-    @help_text = 'List all rentals for a given person id'
-  end
-
-  def execute
-    App.new.list_rentals
-  end
-end
-
 def main
   app = App.new
-  # options = { 'Please choose an option by entering a number:' => '', 'List all books' => 'list_books',
-  #             'List all people' => 'list_people', 'Create a person' => 'create_person',
-  #             'Create a book' => 'create_book', 'Create a rental' => 'create_rental',
-  #             'List all rentals for a given person id' => 'list_rentals', 'Exit' => 'exit' }
 
-  options = [CreateRentalExecuter.new, ListRentalsExecuter.new]
+  options = [
+    ListBooksExecutor.new,
+    ListPeopleExecutor.new,
+    CreatePersonExecutor.new,
+    CreateBookExecutor.new,
+    CreateRentalExecutor.new,
+    ListRentalsExecutor.new,
+    ExitExecutor.new
+  ]
 
   puts 'Welcome to School Library App!'
   selected_option = -1
