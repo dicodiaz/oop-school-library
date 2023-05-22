@@ -1,10 +1,9 @@
 require_relative '../app'
+require_relative './executable'
 
-class ExitExecutor
-  attr_reader :help_text
-
-  def initialize
-    @help_text = 'Exit'
+class ExitExecutor < Executable
+  def help_text
+    'Exit'
   end
 
   def execute

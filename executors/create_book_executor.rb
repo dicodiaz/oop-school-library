@@ -1,10 +1,9 @@
 require_relative '../app'
+require_relative './executable'
 
 class CreateBookExecutor
-  attr_reader :help_text
-
-  def initialize
-    @help_text = 'Create book'
+  def help_text
+    'Create a book'
   end
 
   def execute

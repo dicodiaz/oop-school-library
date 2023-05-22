@@ -1,10 +1,9 @@
 require_relative '../app'
+require_relative './executable'
 
-class ListBooksExecutor
-  attr_reader :help_text
-
-  def initialize
-    @help_text = 'List books'
+class ListBooksExecutor < Executable
+  def help_text
+    'List all books'
   end
 
   def execute

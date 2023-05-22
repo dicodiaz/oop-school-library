@@ -1,16 +1,11 @@
 require_relative './app'
-
-class CreateRentalExecutor
-  attr_reader :help_text
-
-  def initialize
-    @help_text = 'Create a rental'
-  end
-
-  def execute
-    App.new.create_rental
-  end
-end
+require_relative './executors/create_book_executor'
+require_relative './executors/create_person_executor'
+require_relative './executors/create_rental_executor'
+require_relative './executors/exit_executor'
+require_relative './executors/list_books_executor'
+require_relative './executors/list_people_executor'
+require_relative './executors/list_rentals_executor'
 
 def main
   app = App.new

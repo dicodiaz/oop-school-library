@@ -1,10 +1,9 @@
 require_relative '../app'
+require_relative './executable'
 
-class CreatePersonExecutor
-  attr_reader :help_text
-
-  def initialize
-    @help_text = 'Create people'
+class CreatePersonExecutor < Executable
+  def help_text
+    'Create a person'
   end
 
   def execute

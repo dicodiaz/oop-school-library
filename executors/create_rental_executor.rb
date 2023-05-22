@@ -1,10 +1,9 @@
 require_relative '../app'
+require_relative './executable'
 
-class CreateRentalExecutor
-  attr_reader :help_text
-
-  def initialize
-    @help_text = 'Create a rental'
+class CreateRentalExecutor < Executable
+  def help_text
+    'Create a rental'
   end
 
   def execute
