@@ -7,6 +7,6 @@ class CreateRentalExecutor < Executable
   end
 
   def execute
-    App.new.create_rental
+    App.instance.create_rental
   end
 end

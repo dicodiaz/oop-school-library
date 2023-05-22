@@ -7,6 +7,6 @@ class ListBooksExecutor < Executable
   end
 
   def execute
-    App.new.list_books
+    App.instance.list_books
   end
 end

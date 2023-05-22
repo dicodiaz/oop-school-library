@@ -7,6 +7,6 @@ class CreatePersonExecutor < Executable
   end
 
   def execute
-    App.new.create_person
+    App.instance.create_person
   end
 end

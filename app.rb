@@ -6,10 +6,16 @@ require_relative 'rental'
 class App
   WORDS_NUMBERS_SPACES_REGEX = /^[\w\s]+$/.freeze
 
+  private_class_method :new
+
   def initialize
     @people = []
     @books = []
     @rentals = []
+  end
+
+  def self.instance
+    @instance ||= new
   end
 
   def list_books

@@ -7,6 +7,6 @@ class ListRentalsExecutor < Executable
   end
 
   def execute
-    App.new.list_rentals
+    App.instance.list_rentals
   end
 end

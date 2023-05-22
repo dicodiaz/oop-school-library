@@ -7,6 +7,6 @@ class ExitExecutor < Executable
   end
 
   def execute
-    App.new.exit
+    App.instance.exit
   end
 end

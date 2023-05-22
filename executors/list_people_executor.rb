@@ -7,6 +7,6 @@ class ListPeopleExecutor < Executable
   end
 
   def execute
-    App.new.list_people
+    App.instance.list_people
   end
 end
