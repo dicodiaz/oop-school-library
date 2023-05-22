@@ -1,6 +1,6 @@
-require_relative 'app'
+require_relative './app'
 
-class CreateRentalExecuter
+class CreateRentalExecutor
   attr_reader :help_text
 
   def initialize
@@ -12,7 +12,7 @@ class CreateRentalExecuter
   end
 end
 
-class ListRentalsExecuter
+class ListRentalsExecutor
   attr_reader :help_text
 
   def initialize
