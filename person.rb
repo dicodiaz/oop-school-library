@@ -26,11 +26,15 @@ class Person < Nameable
 
   def jsonify
     JSON.dump({
-                id: @id,
                 age: @age,
                 name: @name,
                 parent_permission: @parent_permission
               })
+  end
+
+  def self.from_json(str)
+    data = JSON.parse(str)
+    new(data['age'], data['name'], parent_permission: data['parent_permission'])
   end
 
   private

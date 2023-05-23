@@ -12,7 +12,7 @@ class App
   include Storage
 
   def initialize
-    @people = []
+    @people = load_file('people.json', 'people')
     @books = []
     @rentals = []
   end
