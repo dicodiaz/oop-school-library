@@ -18,6 +18,8 @@ module Storage
       case type
       when 'people'
         result << Person.from_json(elem)
+      when 'books'
+        result << Book.from_json(elem)
       end
     end
     result

@@ -13,7 +13,7 @@ class App
 
   def initialize
     @people = load_file('people.json', 'people')
-    @books = []
+    @books = load_file('books.json', 'books')
     @rentals = []
   end
 
@@ -80,6 +80,7 @@ class App
 
   def exit
     save_file(@people, 'people.json')
+    save_file(@books, 'books.json')
     puts 'Thank you for using this app!'
   end
 

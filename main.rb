@@ -1,3 +1,5 @@
+#! /usr/bin/bash /home/rashed/.rbenv/shims/ruby
+
 require_relative './app'
 require_relative './executors/create_book_executor'
 require_relative './executors/create_person_executor'
