@@ -6,10 +6,16 @@ require_relative 'rental'
 class App
   WORDS_NUMBERS_SPACES_REGEX = /^[\w\s]+$/.freeze
 
+  private_class_method :new
+
   def initialize
     @people = []
     @books = []
     @rentals = []
+  end
+
+  def self.instance
+    @instance ||= new
   end
 
   def list_books
@@ -44,13 +50,13 @@ class App
 
   def create_rental
     print_text = "Select a book from the following list by number\n"
-    print_text += @books.map.with_index do |book, index|
+    print_text << @books.map.with_index do |book, index|
       "#{index}) Title: \"#{book.title}\", Author: #{book.author}"
     end.join("\n").concat("\n")
     book_index = input('number', 0..(@books.length - 1), print_text)
     puts ''
     print_text = "Select a person from the following list by number (not id)\n"
-    print_text += @people.map.with_index do |person, index|
+    print_text << @people.map.with_index do |person, index|
       "#{index}) [#{person.class}] Name: #{person.name}, ID: #{person.id}, Age: #{person.age}"
     end.join("\n").concat("\n")
     person_index = input('number', 0..(@people.length - 1), print_text)

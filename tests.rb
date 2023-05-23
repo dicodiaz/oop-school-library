@@ -1,8 +1,9 @@
-require './student'
-require './teacher'
-require './classroom'
-require './book'
-require './rental'
+require_relative './student'
+require_relative './teacher'
+require_relative './classroom'
+require_relative './book'
+require_relative './rental'
+
 require 'date'
 
 puts '', 'Student', ''
