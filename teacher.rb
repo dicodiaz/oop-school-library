@@ -11,4 +11,8 @@ class Teacher < Person
   def can_use_services?
     true
   end
+
+  def self.from_json(data)
+    new(data['specialization'], data['age'], data['name'])
+  end
 end

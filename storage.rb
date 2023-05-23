@@ -17,9 +17,17 @@ module Storage
     data.each do |elem|
       case type
       when 'people'
-        result << Person.from_json(elem)
+        parsed_elem = JSON.parse(elem)
+        case parsed_elem['type']
+        when 'Teacher'
+          result << Teacher.from_json(parsed_elem)
+        when 'Student'
+          result << Student.from_json(parsed_elem)
+        end
       when 'books'
         result << Book.from_json(elem)
+        # when 'rentals'
+        #   result << Rentals.from_json(elem)
       end
     end
     result

@@ -16,4 +16,8 @@ class Student < Person
     @classroom = classroom
     @classroom.students.push(self) unless @classroom.students.include?(self)
   end
+
+  def self.from_json(data)
+    new(data['age'], data['name'], parent_permission: data['parent_permission'])
+  end
 end

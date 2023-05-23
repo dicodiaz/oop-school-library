@@ -9,4 +9,20 @@ class Rental
     @person = person
     @person.rentals.push(self)
   end
+
+  def jsonify
+    JSON.dump({
+                date: @date,
+                book: @book.jsonify,
+                person: @person.jsonify
+              })
+  end
+
+  def self.from_json(str)
+    data = JSON.parse(str)
+    p data['person']
+    new(data['date'], data['book'], data['person'])
+    @book.rentals.push(self)
+    @person.rentals.push(self)
+  end
 end
