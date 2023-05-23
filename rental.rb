@@ -20,7 +20,6 @@ class Rental
 
   def self.from_json(str)
     data = JSON.parse(str)
-    p data['person']
     new(data['date'], data['book'], data['person'])
     @book.rentals.push(self)
     @person.rentals.push(self)
