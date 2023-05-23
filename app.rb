@@ -2,11 +2,14 @@ require_relative 'student'
 require_relative 'teacher'
 require_relative 'book'
 require_relative 'rental'
+require_relative './storage'
 
 class App
   WORDS_NUMBERS_SPACES_REGEX = /^[\w\s]+$/.freeze
 
   private_class_method :new
+
+  include Storage
 
   def initialize
     @people = []
@@ -76,6 +79,7 @@ class App
   end
 
   def exit
+    save_file(@people, 'people.json')
     puts 'Thank you for using this app!'
   end
 

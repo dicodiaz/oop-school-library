@@ -19,8 +19,9 @@ def main
   ]
 
   puts 'Welcome to School Library App!'
+
   selected_option = -1
-  until selected_option == options.length
+  until selected_option == options.length - 1
     print_text = options.map.with_index do |option, index|
       "#{"#{index + 1} - "}#{option.help_text}"
     end.join("\n").prepend("\nPlease choose an option by entering a number:\n").concat("\n")
