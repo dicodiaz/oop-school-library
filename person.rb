@@ -1,6 +1,8 @@
 require_relative './nameable'
 require_relative './decorators'
 
+require 'json'
+
 class Person < Nameable
   attr_accessor :name, :age
   attr_reader :id, :rentals
@@ -20,6 +22,15 @@ class Person < Nameable
 
   def correct_name
     @name
+  end
+
+  def jsonify
+    JSON.dump({
+                id: @id,
+                age: @age,
+                name: @name,
+                parent_permission: @parent_permission
+              })
   end
 
   private
