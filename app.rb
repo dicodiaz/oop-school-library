@@ -12,9 +12,9 @@ class App
   include Storage
 
   def initialize
-    @books = load_file('books.json', 'books')
-    @people = load_file('people.json', 'people')
-    @rentals = load_file('rentals.json', 'rentals', @books, @people)
+    @books = load_file('books.json')
+    @people = load_file('people.json')
+    @rentals = load_file('rentals.json', @books, @people)
   end
 
   def self.instance

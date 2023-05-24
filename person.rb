@@ -23,6 +23,20 @@ class Person < Nameable
     @name
   end
 
+  def to_json(*_args)
+    {
+      type: self.class,
+      id: @id,
+      name: @name,
+      age: @age,
+      parent_permission: @parent_permission
+    }.to_json
+  end
+
+  def self.from_json(data, _books, _people)
+    new(id: data['id'], name: data['name'], age: data['age'], parent_permission: data['parent_permission'])
+  end
+
   private
 
   def of_age?

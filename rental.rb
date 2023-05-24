@@ -12,6 +12,7 @@ class Rental
 
   def to_json(*_args)
     {
+      type: self.class,
       date: @date,
       book_id: @book.id,
       person_id: @person.id

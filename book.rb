@@ -13,13 +13,14 @@ class Book
 
   def to_json(*_args)
     {
+      type: self.class,
       id: @id,
       title: @title,
       author: @author
     }.to_json
   end
 
-  def self.from_json(data)
+  def self.from_json(data, _books, _people)
     new(id: data['id'], title: data['title'], author: data['author'])
   end
 end
