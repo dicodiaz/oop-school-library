@@ -11,7 +11,7 @@ module Storage
 
   def load_file(file_name, books = nil, people = nil)
     file_path = File.join('storage', file_name)
-    return [] unless File.exist?(file_path)
+    return [] unless File.exist?(file_path) && File.size?(file_path)
 
     json_data = File.read(file_path)
     data = JSON.parse(json_data)
