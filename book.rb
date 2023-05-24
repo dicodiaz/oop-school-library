@@ -20,7 +20,7 @@ class Book
     }.to_json
   end
 
-  def self.from_json(data, _books, _people)
+  def self.from_json(data, *_args)
     new(id: data['id'], title: data['title'], author: data['author'])
   end
 end

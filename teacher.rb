@@ -1,5 +1,6 @@
 require_relative './person'
 
+require 'json'
 require 'date'
 
 class Teacher < Person
@@ -24,7 +25,7 @@ class Teacher < Person
     }.to_json
   end
 
-  def self.from_json(data, _books, _people)
+  def self.from_json(data, *_args)
     new(id: data['id'], name: data['name'], age: data['age'], specialization: data['specialization'])
   end
 end
