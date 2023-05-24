@@ -2,16 +2,19 @@ require_relative 'student'
 require_relative 'teacher'
 require_relative 'book'
 require_relative 'rental'
+require_relative './storage'
 
 class App
   WORDS_NUMBERS_SPACES_REGEX = /^[\w\s]+$/.freeze
 
   private_class_method :new
 
+  include Storage
+
   def initialize
-    @people = []
-    @books = []
-    @rentals = []
+    @books = load_file('books.json')
+    @people = load_file('people.json')
+    @rentals = load_file('rentals.json', @books, @people)
   end
 
   def self.instance
@@ -33,10 +36,10 @@ class App
     case option
     when 1
       parent_permission = input('string', /^[ynYN]$/, 'Has parent permission? [Y/N]: ')
-      @people.push(Student.new(age, name, parent_permission: parent_permission.downcase == 'y'))
+      @people.push(Student.new(name: name, age: age, parent_permission: parent_permission.downcase == 'y'))
     when 2
       specialization = input('string', WORDS_NUMBERS_SPACES_REGEX, 'Specialization: ')
-      @people.push(Teacher.new(specialization, age, name))
+      @people.push(Teacher.new(name: name, age: age, specialization: specialization))
     end
     puts 'Person created successfully'
   end
@@ -44,7 +47,7 @@ class App
   def create_book
     title = input('string', WORDS_NUMBERS_SPACES_REGEX, 'Title: ')
     author = input('string', WORDS_NUMBERS_SPACES_REGEX, 'Author: ')
-    @books.push(Book.new(title, author))
+    @books.push(Book.new(title: title, author: author))
     puts 'Book created successfully'
   end
 
@@ -62,12 +65,12 @@ class App
     person_index = input('number', 0..(@people.length - 1), print_text)
     puts ''
     date = input('string', %r{^\d{4}/\d{2}/\d{2}$}, 'Date(YYYY/MM/DD): ')
-    @rentals.push(Rental.new(date, @books[book_index], @people[person_index]))
+    @rentals.push(Rental.new(date: date, book: @books[book_index], person: @people[person_index]))
     puts 'Rental created successfully'
   end
 
   def list_rentals
-    person_id = input('number', 1..1000, 'ID of person: ')
+    person_id = input('string', /\d+/, 'ID of person: ').to_i
     puts 'Rentals:'
     filtered_mapped_rentals = @rentals.filter_map do |rental|
       "Date: #{rental.date}, Book \"#{rental.book.title}\" by #{rental.book.author}" if rental.person.id == person_id
@@ -76,6 +79,9 @@ class App
   end
 
   def exit
+    save_file(@people, 'people.json')
+    save_file(@books, 'books.json')
+    save_file(@rentals, 'rentals.json')
     puts 'Thank you for using this app!'
   end
 

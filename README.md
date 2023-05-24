@@ -68,6 +68,12 @@ To run the project, execute the following commands:
 
 ## 👥 Authors <a name="authors"></a>
 
+👤 **Rashed Arman**
+
+- GitHub: [@rashedarman](https://github.com/rashedarman)
+- Twitter: [@rashedarman21](https://twitter.com/rashedarman21)
+- LinkedIn: [Rashed Arman](https://linkedin.com/in/rashedarman)
+
 👤 **Dico Diaz Dussan**
 
 - GitHub: [@dicodiaz](https://github.com/dicodiaz)
@@ -81,8 +87,8 @@ To run the project, execute the following commands:
 - [x] Use the "Decorator" design pattern.
 - [x] Set up associations.
 - [x] Add basic UI.
-- [ ] Refactor your code.
-- [ ] Preserve data.
+- [x] Refactor your code.
+- [x] Preserve data.
 - [ ] Unit tests.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
