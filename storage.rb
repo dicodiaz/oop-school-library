@@ -14,22 +14,33 @@ module Storage
 
     json_data = File.read(file_path)
     data = JSON.parse(json_data)
+    load_file_data(data, type)
+  end
+
+  private
+
+  def load_file_data(data, type)
+    result = []
     data.each do |elem|
       case type
       when 'people'
-        parsed_elem = JSON.parse(elem)
-        case parsed_elem['type']
-        when 'Teacher'
-          result << Teacher.from_json(parsed_elem)
-        when 'Student'
-          result << Student.from_json(parsed_elem)
-        end
+        result << load_people(elem)
       when 'books'
         result << Book.from_json(elem)
-        # when 'rentals'
-        #   result << Rentals.from_json(elem)
+      when 'rentals'
+        result << Rentals.from_json(elem)
       end
     end
     result
+  end
+
+  def load_people(elem)
+    parsed_elem = JSON.parse(elem)
+    case parsed_elem['type']
+    when 'Teacher'
+      Teacher.from_json(parsed_elem)
+    when 'Student'
+      Student.from_json(parsed_elem)
+    end
   end
 end

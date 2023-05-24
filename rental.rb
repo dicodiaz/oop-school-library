@@ -20,8 +20,10 @@ class Rental
 
   def self.from_json(str)
     data = JSON.parse(str)
-    new(data['date'], data['book'], data['person'])
-    @book.rentals.push(self)
-    @person.rentals.push(self)
+    # new(data['date'], data['book'], data['person'])
+    p data['book']
+    p data['person']['id']
+    # @book.rentals.push(self)
+    # @person.rentals.push(self)
   end
 end

@@ -70,7 +70,7 @@ class App
   end
 
   def list_rentals
-    person_id = input('number', 1..1000, 'ID of person: ')
+    person_id = input('string', /\d+/, 'ID of person: ').to_i
     puts 'Rentals:'
     filtered_mapped_rentals = @rentals.filter_map do |rental|
       "Date: #{rental.date}, Book \"#{rental.book.title}\" by #{rental.book.author}" if rental.person.id == person_id
