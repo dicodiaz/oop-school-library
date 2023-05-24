@@ -4,7 +4,7 @@ class Book
   attr_accessor :title, :author
   attr_reader :rentals, :id
 
-  def initialize(title, author, id = DateTime.now.strftime('%s'))
+  def initialize(id: DateTime.now.strftime('%s').to_i, title: nil, author: nil)
     @id = id
     @title = title
     @author = author
@@ -20,6 +20,6 @@ class Book
   end
 
   def self.from_json(data)
-    new(data['title'], data['author'], data['id'])
+    new(id: data['id'], title: data['title'], author: data['author'])
   end
 end

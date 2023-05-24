@@ -36,10 +36,10 @@ class App
     case option
     when 1
       parent_permission = input('string', /^[ynYN]$/, 'Has parent permission? [Y/N]: ')
-      @people.push(Student.new(nil, age, name, parent_permission.downcase == 'y'))
+      @people.push(Student.new(name: name, age: age, parent_permission: parent_permission.downcase == 'y'))
     when 2
       specialization = input('string', WORDS_NUMBERS_SPACES_REGEX, 'Specialization: ')
-      @people.push(Teacher.new(nil, specialization, age, name))
+      @people.push(Teacher.new(name: name, age: age, specialization: specialization))
     end
     puts 'Person created successfully'
   end
@@ -47,7 +47,7 @@ class App
   def create_book
     title = input('string', WORDS_NUMBERS_SPACES_REGEX, 'Title: ')
     author = input('string', WORDS_NUMBERS_SPACES_REGEX, 'Author: ')
-    @books.push(Book.new(title, author))
+    @books.push(Book.new(title: title, author: author))
     puts 'Book created successfully'
   end
 
@@ -65,7 +65,7 @@ class App
     person_index = input('number', 0..(@people.length - 1), print_text)
     puts ''
     date = input('string', %r{^\d{4}/\d{2}/\d{2}$}, 'Date(YYYY/MM/DD): ')
-    @rentals.push(Rental.new(date, @books[book_index], @people[person_index]))
+    @rentals.push(Rental.new(date: date, book: @books[book_index], person: @people[person_index]))
     puts 'Rental created successfully'
   end
 

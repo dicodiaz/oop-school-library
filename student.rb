@@ -1,10 +1,12 @@
 require_relative './person'
 
+require 'date'
+
 class Student < Person
   attr_reader :classroom
 
-  def initialize(id, age, name, parent_permission)
-    super(id: id, age: age, name: name, parent_permission: parent_permission)
+  def initialize(id: DateTime.now.strftime('%s').to_i, name: nil, age: nil, parent_permission: true)
+    super(id: id, name: name, age: age, parent_permission: parent_permission)
   end
 
   def play_hooky
@@ -21,13 +23,13 @@ class Student < Person
     {
       type: self.class,
       id: @id,
-      age: @age,
       name: @name,
+      age: @age,
       parent_permission: @parent_permission
     }.to_json
   end
 
   def self.from_json(data)
-    new(data['id'], data['age'], data['name'], data['parent_permission'])
+    new(id: data['id'], name: data['name'], age: data['age'], parent_permission: data['parent_permission'])
   end
 end

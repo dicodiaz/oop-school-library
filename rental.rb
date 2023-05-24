@@ -2,7 +2,7 @@ class Rental
   attr_accessor :date
   attr_reader :book, :person
 
-  def initialize(date, book, person)
+  def initialize(date: nil, book: nil, person: nil)
     @date = date
     @book = book
     @book.rentals.push(self)
@@ -18,11 +18,11 @@ class Rental
     }.to_json
   end
 
-  def self.from_json(rental_data, books, people)
-    relevant_book = books.find do { |book| book.id == rental_data['book_id'] }
-    relevant_person = people.find { |person| person.id == rental_data['person_id'] }
+  def self.from_json(data, books, people)
+    relevant_book = books.find { |book| book.id == data['book_id'] }
+    relevant_person = people.find { |person| person.id == data['person_id'] }
     return nil if relevant_book.nil? || relevant_person.nil?
 
-    new(rental_data['date'], relevant_book, relevant_person)
+    new(date: data['date'], book: relevant_book, person: relevant_person)
   end
 end

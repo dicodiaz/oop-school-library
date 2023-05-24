@@ -1,18 +1,16 @@
 require_relative './nameable'
-require_relative './decorators'
 
-require 'json'
 require 'date'
 
 class Person < Nameable
   attr_accessor :name, :age
   attr_reader :id, :rentals
 
-  def initialize(id: nil, age: 0, name: 'Unknown', parent_permission: true)
+  def initialize(id: DateTime.now.strftime('%s').to_i, name: nil, age: nil, parent_permission: true)
     super()
-    @id = id || DateTime.now.strftime('%s')
-    @age = age
+    @id = id
     @name = name
+    @age = age
     @parent_permission = parent_permission
     @rentals = []
   end
