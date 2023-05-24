@@ -25,16 +25,6 @@ class Person < Nameable
     @name
   end
 
-  def jsonify
-    JSON.dump({
-                id: @id,
-                age: @age,
-                name: @name,
-                parent_permission: @parent_permission,
-                type: self.class
-              })
-  end
-
   private
 
   def of_age?

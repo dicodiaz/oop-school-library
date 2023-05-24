@@ -12,9 +12,9 @@ class App
   include Storage
 
   def initialize
-    @people = load_file('people.json', 'people')
     @books = load_file('books.json', 'books')
-    @rentals = load_file('rentals.json', 'rentals')
+    @people = load_file('people.json', 'people')
+    @rentals = load_file('rentals.json', 'rentals', @books, @people)
   end
 
   def self.instance
@@ -36,7 +36,7 @@ class App
     case option
     when 1
       parent_permission = input('string', /^[ynYN]$/, 'Has parent permission? [Y/N]: ')
-      @people.push(Student.new(nil, age, name, parent_permission: parent_permission.downcase == 'y'))
+      @people.push(Student.new(nil, age, name, parent_permission.downcase == 'y'))
     when 2
       specialization = input('string', WORDS_NUMBERS_SPACES_REGEX, 'Specialization: ')
       @people.push(Teacher.new(nil, specialization, age, name))

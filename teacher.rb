@@ -12,6 +12,16 @@ class Teacher < Person
     true
   end
 
+  def to_json(*_args)
+    {
+      type: self.class,
+      id: @id,
+      specialization: @specialization,
+      age: @age,
+      name: @name
+    }.to_json
+  end
+
   def self.from_json(data)
     new(data['id'], data['specialization'], data['age'], data['name'])
   end

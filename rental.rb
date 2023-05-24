@@ -10,20 +10,19 @@ class Rental
     @person.rentals.push(self)
   end
 
-  def jsonify
-    JSON.dump({
-                date: @date,
-                book: @book.jsonify,
-                person: @person.jsonify
-              })
+  def to_json(*_args)
+    {
+      date: @date,
+      book_id: @book.id,
+      person_id: @person.id
+    }.to_json
   end
 
-  def self.from_json(str)
-    data = JSON.parse(str)
-    # new(data['date'], data['book'], data['person'])
-    p data['book']
-    p data['person']['id']
-    # @book.rentals.push(self)
-    # @person.rentals.push(self)
+  def self.from_json(rental_data, books, people)
+    relevant_book = books.find do { |book| book.id == rental_data['book_id'] }
+    relevant_person = people.find { |person| person.id == rental_data['person_id'] }
+    return nil if relevant_book.nil? || relevant_person.nil?
+
+    new(rental_data['date'], relevant_book, relevant_person)
   end
 end
