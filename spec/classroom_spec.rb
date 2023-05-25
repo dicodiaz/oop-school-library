@@ -30,7 +30,8 @@ describe Classroom do
       end
 
       it 'should not add the student to the classroom' do
-        expect { @classroom.add_student(@student1) }.not_to(change { @classroom.students.count })
+        added_student = @classroom.add_student(@student1)
+        expect { added_student }.not_to(change { @classroom.students.count })
       end
     end
   end
