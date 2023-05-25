@@ -89,7 +89,7 @@ To run the project, execute the following commands:
 - [x] Add basic UI.
 - [x] Refactor your code.
 - [x] Preserve data.
-- [ ] Unit tests.
+- [x] Unit tests.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
