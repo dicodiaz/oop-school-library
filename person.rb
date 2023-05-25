@@ -3,7 +3,7 @@ require_relative './nameable'
 require 'date'
 
 class Person < Nameable
-  attr_accessor :name, :age
+  attr_accessor :name, :age, :parent_permission
   attr_reader :id, :rentals
 
   def initialize(id: DateTime.now.strftime('%s').to_i, name: nil, age: nil, parent_permission: true)
@@ -33,7 +33,7 @@ class Person < Nameable
     }.to_json
   end
 
-  def self.from_json(data, _books, _people)
+  def self.from_json(data, *_args)
     new(id: data['id'], name: data['name'], age: data['age'], parent_permission: data['parent_permission'])
   end
 

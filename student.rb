@@ -29,7 +29,7 @@ class Student < Person
     }.to_json
   end
 
-  def self.from_json(data, _books, _people)
+  def self.from_json(data, *_args)
     new(id: data['id'], name: data['name'], age: data['age'], parent_permission: data['parent_permission'])
   end
 end
