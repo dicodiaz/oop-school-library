@@ -17,15 +17,15 @@ describe Solver do
 
     context 'when given a negative integer' do
       it 'raises an exception' do
-        expect(@solver.factorial(-1)).to raise_error(ArgumentError, 'Negative number')
+        expect { @solver.factorial(-1) }.to raise_error(ArgumentError, 'Negative number')
       end
     end
 
     context 'when given a non-integer' do
       it 'raises an exception' do
-        expect(@solver.factorial(nil)).to raise_error(ArgumentError, 'Invalid argument')
-        expect(@solver.factorial('str')).to raise_error(ArgumentError, 'Invalid argument')
-        expect(@solver.factorial(3.14)).to raise_error(ArgumentError, 'Invalid argument')
+        expect { @solver.factorial(nil) }.to raise_error(ArgumentError, 'Invalid argument')
+        expect { @solver.factorial('str') }.to raise_error(ArgumentError, 'Invalid argument')
+        expect { @solver.factorial(3.14) }.to raise_error(ArgumentError, 'Invalid argument')
       end
     end
   end
@@ -41,9 +41,9 @@ describe Solver do
 
     context 'when given a non-string' do
       it 'raises an exception' do
-        expect(@solver.reverse(nil)).to raise_error(ArgumentError, 'Invalid argument')
-        expect(@solver.reverse(3.14)).to raise_error(ArgumentError, 'Invalid argument')
-        expect(@solver.reverse([])).to raise_error(ArgumentError, 'Invalid argument')
+        expect { @solver.reverse(nil) }.to raise_error(ArgumentError, 'Invalid argument')
+        expect { @solver.reverse(3.14) }.to raise_error(ArgumentError, 'Invalid argument')
+        expect { @solver.reverse([]) }.to raise_error(ArgumentError, 'Invalid argument')
       end
     end
   end
